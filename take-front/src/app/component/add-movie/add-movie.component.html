@@ -1,0 +1,45 @@
+<form [formGroup]="movieForm" class="movie-form" (ngSubmit)="send()">
+    <mat-form-field class="full-width">
+        <mat-label>Tytuł</mat-label>
+        <input matInput formControlName="title" />
+    </mat-form-field>
+    <div class="alert" *ngIf="movieForm.controls['title'].touched && movieForm.controls['title'].hasError('required')">Tytuł jest wymagany</div>
+
+    <mat-form-field class="full-width">
+        <mat-label>Kategoria</mat-label>
+        <input matInput formControlName="category" />
+    </mat-form-field>
+    <div class="alert" *ngIf="movieForm.controls['category'].touched && movieForm.controls['category'].hasError('required')">Kategoria jest wymagana</div>
+
+
+    <mat-form-field class="full-width" >
+        <mat-label>Rok</mat-label>
+        <input type="number" matInput formControlName="year" />
+    </mat-form-field>
+    <div class="alert" *ngIf=" movieForm.controls['year'].touched && movieForm.controls['year'].invalid">Rok nie może być mniejszy niż 1900</div>
+
+    <mat-form-field class="full-width">
+        <mat-label>Opis</mat-label>
+        <textarea matInput placeholder="opis" formControlName="description" rows="4" ></textarea>
+    </mat-form-field>
+    <div class="alert" *ngIf=" movieForm.controls['description'].touched && movieForm.controls['description'].invalid">Opis nie może być pusty</div>
+
+
+    <mat-form-field class="full-width">
+        <mat-label>Cena</mat-label>
+        <input type="number" matInput formControlName="price" />
+    </mat-form-field>
+    <div class="alert" *ngIf="movieForm.controls['price'].invalid">Cena musi być powyżej zera</div>
+
+
+
+    <button mat-raised-button color="primary"  *ngIf="id==0" [disabled]="!movieForm.valid" type="submit">
+        Dodaj
+    </button>
+
+    <button mat-raised-button color="primary"  *ngIf="id!=0" [disabled]="!movieForm.valid" type="submit">
+        Zapisz
+    </button>
+
+
+</form>

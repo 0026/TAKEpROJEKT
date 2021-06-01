@@ -1,0 +1,16 @@
+.movie-form {
+    padding: 2em;
+    min-width: 150px;
+    max-width: 70%;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+    display: block;
+}
+
+
+.alert{
+    color:red;
+}

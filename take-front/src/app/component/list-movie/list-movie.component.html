@@ -1,0 +1,51 @@
+Filtrowanie:
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="filtr" (keyup)="onKey($event)">
+</mat-form-field>
+
+<table mat-table class="styled-table">
+  <thead>
+    <tr>
+      <td>
+        <h2>Tytuł</h2>
+      </td>
+      <td>
+        <h2>Kategoria</h2>
+      </td>
+      <td>
+        <h2>Rok</h2>
+      </td>
+      <td>
+        <h2>Cena</h2>
+      </td>
+      <td *ngIf="!admin">
+        <h2>Do Koszyka</h2>
+      </td>
+      <td *ngIf="admin">
+        <h2>Edycja</h2>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+
+  <ng-container *ngFor="let movie of movieList | async">
+    <ng-container *ngIf="filtrate(movie,reg)">
+      <tr>
+        <td>
+          <a href="info/{{movie.id}}">
+            {{movie.title}}
+          </a>
+        </td>
+        <td>{{movie.category}}</td>
+        <td>{{movie.year}}</td>
+        <td>{{movie.price}}</td>
+
+        <td *ngIf="!admin"><button mat-button (click)="addToCart(movie.id)">Dodaj</button></td>
+
+        <td *ngIf="admin"><button mat-button (click)="edit(movie.id)">Edytuj</button></td>
+
+      </tr>
+    </ng-container>
+  </ng-container>
+  </tbody>
+</table>

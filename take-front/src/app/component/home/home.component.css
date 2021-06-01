@@ -1,0 +1,9 @@
+.language-ascii-noshadows {
+    display: inline-block; 
+    font-family: monospace;
+    display: block;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

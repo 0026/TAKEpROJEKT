@@ -1,0 +1,27 @@
+<p>Łącznie: {{sumOfCart}}</p>
+
+<table mat-table>
+    <tr>
+      <td><h2>Tytuł</h2></td>
+      <td><h2>Cena</h2></td>
+      <td><h2>więcej</h2></td>
+      <td><h2>Ilość</h2></td>
+      <td><h2>mniej</h2></td>
+
+    </tr>
+    <ng-container *ngFor="let item of items | async">
+      <tr>
+        <td>
+          <a href="info/{{item.movie.id}}">
+            {{item.movie.title}}
+          </a>
+
+        </td>
+        <td>{{item.movie.price}}</td>
+        <td> <button mat-button (click)="add(item.movie.id)" >+</button> </td>
+        <td>{{item.quantity}}</td>
+        <td> <button mat-button (click)="remove(item.movie.id)" >-</button> </td>
+
+      </tr>
+    </ng-container>
+  </table>

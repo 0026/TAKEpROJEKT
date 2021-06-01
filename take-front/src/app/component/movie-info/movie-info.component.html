@@ -1,0 +1,42 @@
+<div *ngIf="movie">
+
+    <div class="box">
+        <h3>Id.</h3>
+        <p>
+            {{ (movie | async)?.id}}
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>Tytuł:</h3>
+        <p>
+            {{ (movie | async)?.title}}
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>Kategoria:</h3>
+        <p>
+            {{ (movie | async)?.category}}
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>Rok:</h3>
+        <p>
+            {{ (movie | async)?.year}}
+        </p>
+    </div>
+    <div class="box">
+        <h3>Opis:</h3>
+        <p>
+            {{ (movie | async)?.description}}
+        </p>
+    </div>
+    <div class="box">
+        <h3>Cena:</h3>
+        <p>
+            {{ (movie | async)?.price}}
+        </p>
+    </div>
+</div>
