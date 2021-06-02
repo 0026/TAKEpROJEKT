@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'create/:id', component: AddMovieComponent },
   { path: 'list', component: ListMovieComponent },
   { path: 'cart', component: ShoppingCartComponent },
-  { path: 'info/:id', component: MovieInfoComponent }
-  
+  { path: 'info/:id', component: MovieInfoComponent },
+  { path: '**', component: HomeComponent }
 
 ];
 

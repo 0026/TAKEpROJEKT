@@ -15,14 +15,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { CookieService } from 'ngx-cookie-service';
 import { HomeComponent } from './component/home/home.component';
 import { AddMovieComponent } from './component/add-movie/add-movie.component';
 import { ListMovieComponent } from './component/list-movie/list-movie.component';
 import { ShoppingCartComponent } from './component/shopping-cart/shopping-cart.component';
-import { MovieInfoComponent } from './component/movie-info/movie-info.component'; 
+import { MovieInfoComponent } from './component/movie-info/movie-info.component';
 
 
 
@@ -56,7 +56,7 @@ import { MovieInfoComponent } from './component/movie-info/movie-info.component'
 
 
   ],
-  exports:[
+  exports: [
     MatFormFieldModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -67,7 +67,8 @@ import { MovieInfoComponent } from './component/movie-info/movie-info.component'
     MatIconModule,
     MatTabsModule,
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

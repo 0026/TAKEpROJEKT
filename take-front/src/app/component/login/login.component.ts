@@ -46,14 +46,15 @@ export class LoginComponent implements OnInit {
   @ViewChild('tabGroup') tabGroup: any;
 
   saveUser() {
-    //console.log(this.userForm.value);
-    //console.log('afterViewInit => ', this.tabGroup.selectedIndex);
     this.userService.addUser(this.userForm.value).subscribe(
       resp => {
         this.tabGroup.selectedIndex = 0;
         this._snackBar.open("Dodano usera", "OK");
         this.userForm.reset();
 
+      },
+      error =>{
+        this._snackBar.open("Login jest już zajęty", "OK");
       }
     )
   }
